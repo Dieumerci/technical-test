@@ -19,43 +19,27 @@
             <div class="col-lg-3">
 
             </div>
-            <div class="col">
-                <div class="weather-card one">
-				<div class="top">
-					<div class="wrapper">
-						<div class="mynav">
-							<a href="javascript:;"><span class="lnr lnr-chevron-left"></span></a>
-							<a href="javascript:;"><span class="lnr lnr-cog"></span></a>
-						</div>
-						<h1 class="heading">Clear night</h1>
-						<h3 class="location">Dhaka, Bangladesh</h3>
-						<p class="temp">
-							<span class="temp-value">20</span>
-							<span class="deg">0</span>
-							<a href="javascript:;"><span class="temp-type">C</span></a>
-						</p>
-					</div>
-				</div>
-				<div class="bottom">
-					<div class="wrapper">
-						<ul class="forecast">
-							<a href="javascript:;"><span class="lnr lnr-chevron-up go-up"></span></a>
-							<li class="active">
-								<span class="date">Yesterday</span>
-								<span class="lnr lnr-sun condition">
-									<span class="temp">23<span class="deg">0</span><span class="temp-type">C</span></span>
-								</span>
-							</li>
-							<li>
-								<span class="date">Tomorrow</span>
-								<span class="lnr lnr-cloud condition">
-									<span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
-								</span>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+            <div class="col-lg-9 col-md-4 col-sm-9 col-xs-9">
+                <div class="card-deck">
+            <div class="card p-4">
+                <div class="d-flex">
+                    <h6 class="flex-grow-1">{{  weather_dict.city }}, {{ weather_dict.country_code }}</h6>
+                    <h6>16:08</h6>
+                </div>
+                <div class="d-flex flex-column temp mt-5 mb-3">
+                    <h1 class="mb-0 font-weight-bold" id="heading"> {{ weather_dict.temperature }}° C </h1> <span class="small grey">{{ weather_dict.description }}</span>
+                </div>
+                <div class="d-flex">
+                    <div class="temp-details flex-grow-1">
+                        <p class="my-1"> <img src="https://i.imgur.com/B9kqOzp.png" height="17px"> <span> 40 km/h </span> </p>
+                        <p class="my-1"> <i class="fa fa-tint mr-2" aria-hidden="true"></i> <span>{{ weather_dict.temperature_min }}% </span> </p>
+                        <p class="my-1"> <img src="https://i.imgur.com/wGSJ8C5.png" height="17px"> <span> {{ weather_dict.temperature_max }}</span> </p>
+                    </div>
+                    <div> <img src="https://openweathermap.org/img/w/{{ weather_dict.icon }}.png" width="50px" width="50px"> {{ weather_dict.icon }} </div>
+                </div>
+            </div>
+
+                </div>
             </div>
         </div>
     </div>

@@ -21,7 +21,8 @@ def home():
         'temperature_min': req['main']['temp_min'],
         'temperature_max': req['main']['temp_max'],
         'humidity': req['main']['humidity'],
-        'country_code': req['sys']['country']
+        'country_code': req['sys']['country'],
+        'icon':req['weather'][0]['icon']
     }
 
 
