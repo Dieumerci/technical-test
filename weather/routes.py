@@ -13,5 +13,16 @@ def home():
     API_URL = 'http://api.openweathermap.org/data/2.5/weather?q={}&appid=c6efa00662ece7b2952527c32ced8914'
     city = 'Johannesburg'
     req = requests.get(API_URL.format(city)).json()
-    print(req)
-    return render_template('layout.html')
+
+    weather_dict = {
+        'city': city,
+        'description': req['weather'][0]['description'],
+        'temperature': req['main']['temp'],
+        'temperature_min': req['main']['temp_min'],
+        'temperature_max': req['main']['temp_max'],
+        'humidity': req['main']['humidity'],
+        'country_code': req['sys']['country']
+    }
+
+
+    return render_template('layout.html', weather_dict=weather_dict)
