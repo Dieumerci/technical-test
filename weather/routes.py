@@ -32,6 +32,20 @@ def home():
         }
 
         weather_data.append(weather_dict)
-
-
     return render_template('layout.html', weather_data=weather_data)
+
+@app.route('/', methods=['POST'])
+def home_post():
+    data_error = ''
+    data = request.form.get('city')
+    if data:
+        data_exists = WeatherModel.query.filter_by(name= data).first()
+
+        if not data_exists:
+            new_data_obj = WeatherModel(name=data)
+            db.session.add(new_data_obj)
+            db.session.commit()
+        else:
+            data_error = 'Data already exists'
+
+    return redirect(url_for('home'))
