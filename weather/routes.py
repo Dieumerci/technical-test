@@ -56,4 +56,9 @@ def home_post():
         else:
             data_error = 'Data already exists in the data base'
 
+    if data_error:
+        flash(data_error, 'error')
+    else:
+        flash('Success')
+
     return redirect(url_for('home'))
